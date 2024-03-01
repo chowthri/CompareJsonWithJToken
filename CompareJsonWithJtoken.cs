@@ -59,7 +59,7 @@ class Program
                     }
                     else
                     {
-                        AppendTableRow(propertyPath, property.Value.ToString(), "null", html);
+                        AppendTableRow(propertyPath, property.Value?.ToString() ?? "null", "null", html);
                     }
                 }
 
@@ -67,7 +67,7 @@ class Program
                 {
                     if (!obj1.ContainsKey(property.Name))
                     {
-                        AppendTableRow(path + "." + property.Name, "null", property.Value.ToString(), html);
+                        AppendTableRow(path + "." + property.Name, "null", property.Value?.ToString() ?? "null", html);
                     }
                 }
 
@@ -86,18 +86,18 @@ class Program
                     }
                     else if (i < array1.Count)
                     {
-                        AppendTableRow(elementPath, array1[i].ToString(), "null", html);
+                        AppendTableRow(elementPath, array1[i]?.ToString() ?? "null", "null", html);
                     }
                     else
                     {
-                        AppendTableRow(elementPath, "null", array2[i].ToString(), html);
+                        AppendTableRow(elementPath, "null", array2[i]?.ToString() ?? "null", html);
                     }
                 }
 
                 break;
 
             default:
-                AppendTableRow(path, token1.ToString(), token2.ToString(), html);
+                AppendTableRow(path, token1?.ToString() ?? "null", token2?.ToString() ?? "null", html);
                 break;
         }
     }
